@@ -24,38 +24,41 @@ GSHEET_DETAILS_LIST=[
 
 SAVE_FOLDER_PATH = './data/*'
 
-# logging
-LOGGING = {
-	'version': 1,
-	'disable_existing_loggers': False,
-	'formatters': {
-		'simple': {
-			'format': '[%(asctime)s] %(levelname)s %(message)s',
-		},
-		'verbose': {
-			'format': '[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s',
-		},
-	},
-	'handlers': {
-		'console': {
-			'class': 'logging.StreamHandler',
-			'level': 'INFO',
-			'formatter': 'verbose'
-		},
-	},
-	'loggers': {
-		'': {
-			'handlers': ['console'],
-			'level': 'INFO',
-			'propagate': True,
-		},
-	},
-}
-import logging
-import logging.config
+# # logging
+# LOGGING = {
+# 	'version': 1,
+# 	'disable_existing_loggers': False,
+# 	'formatters': {
+# 		'simple': {
+# 			'format': '[%(asctime)s] %(levelname)s %(message)s',
+# 		},
+# 		'verbose': {
+# 			'format': '[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s',
+# 		},
+# 	},
+# 	'handlers': {
+# 		'console': {
+# 			'class': 'logging.StreamHandler',
+# 			'level': 'INFO',
+# 			'formatter': 'verbose'
+# 		},
+# 	},
+# 	'loggers': {
+# 		'': {
+# 			'handlers': ['console'],
+# 			'level': 'INFO',
+# 			'propagate': True,
+# 		},
+# 	},
+# }
+# import logging
+# import logging.config
 
-logging.config.dictConfig(LOGGING)
+# logging.config.dictConfig(LOGGING)
 
+#DATE_FORMATS_LIST = ["%d-%b-%Y :: 3-Apr-2022", "%d/%m/%Y :: 4/7/2022", "%d-%m-%y :: 4-7-22", "%Y-%m-%d :: 2022-01-07"]
+
+# DATE_FORMAT_MAPER = ['%d-%b-%Y','%d/%m/%Y',"%d-%m-%y","%Y-%m-%d"]
 
 DATA_COLUMN_EXCEL_CSV_MAP={
     "GSTIN/UIN of Recipient": 'GSTIN OF BUYER',

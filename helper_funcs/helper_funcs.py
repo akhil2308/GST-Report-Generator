@@ -8,7 +8,8 @@ from settings.settings import GOOGLE_CREDENTIALS_PATH, GOOGLE_AUTHORIZED_USER_PA
 
 def treat_date_v2(s_date, format='date'):
     try:
-        if format == 'date': return parser.parse(s_date).strftime("%d-%b-%Y")
+        if format == 'date': return parser.parse(s_date).strftime("%Y-%m-%d")
+        if format == 'month_year': return parser.parse(s_date).strftime('%B-%Y')
         if format == 'time': return parser.parse(s_date).strftime("%H:%M:%S")
         if format == 'datetime': return parser.parse(s_date).strftime('%Y-%m-%d %H:%M:%S%z')
         
