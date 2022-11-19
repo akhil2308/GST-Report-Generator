@@ -7,3 +7,6 @@ __pycache__/
 # exclude everything
 credentials/*
 data/*
+
+# exception to the rule
+!credentials/.gitkeep 
