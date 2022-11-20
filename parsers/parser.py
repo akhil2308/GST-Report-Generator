@@ -4,6 +4,8 @@ import calendar
 from settings.settings import *
 from helper_funcs.helper_funcs import treat_date_v2
 import re
+from rich import print as rprint
+
 
 import logging
 logger = logging.getLogger(__name__)
@@ -73,7 +75,7 @@ class B2BB2CParser():
 			logger.error(e)
 			raise
 			
-	def validate_df(self,df):
+	def validate_df_col(self,df):
 		try:
 			require_col = ['Invoice No.', 'Date', 'Name of the Buyer','GSTIN OF BUYER',
                   			'Place of the Buyer','SAC Code','Taxable Value','Invoice Value']
@@ -96,6 +98,18 @@ class B2BB2CParser():
 		except Exception as e:
 			logger.error(e)
 			raise
+	def validate_df_data(self,df):
+		try:
+			bad_df = df[df['Invoice No.'].str.match('^[a-zA-Z0-9/\s]+$')== False]
+			if not bad_df.empty:
+				logger.warning("bad data found in Invoice No.")
+				print(bad_df)
+				raise
+
+		except Exception as e:
+			logger.error(e)
+			raise
+
 
 	def parse(self):
 		try:
@@ -110,9 +124,12 @@ class B2BB2CParser():
 			#slicing the df based on the start and end index
 			df  		= df.iloc[:,range(start_index,end_index+1)]
 	
- 			# valudate df
-			self.validate_df(df)
+ 			# valudate df columns
+			self.validate_df_col(df)
+			# validate data in columns
+			self.validate_df_data(df)
 			print("Data validated")
+   
 			col = list(df.columns)
    
 			# Renaming columns inbetween the given range
