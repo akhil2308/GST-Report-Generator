@@ -3,6 +3,9 @@ import gspread
 
 GOOGLE_CREDENTIALS_PATH    ='./credentials/client_secret.json',
 GOOGLE_AUTHORIZED_USER_PATH='./credentials/authorized_user.json'
+GOOGLE_SERVICE_CREDENTIALS_PATH  = './credentials/service_credentials.json'
+
+# gc = gspread.service_account(filename=GOOGLE_CREDENTIALS_PATH)
 
 gc = gspread.oauth(credentials_filename=GOOGLE_CREDENTIALS_PATH,authorized_user_filename=GOOGLE_AUTHORIZED_USER_PATH)
         
@@ -24,37 +27,37 @@ GSHEET_DETAILS_LIST=[
 
 SAVE_FOLDER_PATH = './data/*'
 
-# # logging
-# LOGGING = {
-# 	'version': 1,
-# 	'disable_existing_loggers': False,
-# 	'formatters': {
-# 		'simple': {
-# 			'format': '[%(asctime)s] %(levelname)s %(message)s',
-# 		},
-# 		'verbose': {
-# 			'format': '[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s',
-# 		},
-# 	},
-# 	'handlers': {
-# 		'console': {
-# 			'class': 'logging.StreamHandler',
-# 			'level': 'INFO',
-# 			'formatter': 'verbose'
-# 		},
-# 	},
-# 	'loggers': {
-# 		'': {
-# 			'handlers': ['console'],
-# 			'level': 'INFO',
-# 			'propagate': True,
-# 		},
-# 	},
-# }
-# import logging
-# import logging.config
+# logging
+LOGGING = {
+	'version': 1,
+	'disable_existing_loggers': False,
+	'formatters': {
+		'simple': {
+			'format': '%(levelname)s %(message)s',
+		},
+		'verbose': {
+			'format': '%(levelname)s :: %(message)s', #[%(name)s.%(funcName)s:%(lineno)d]
+		},
+	},
+	'handlers': {
+		'console': {
+			'class': 'logging.StreamHandler',
+			'level': 'INFO',
+			'formatter': 'verbose'
+		},
+	},
+	'loggers': {
+		'': {
+			'handlers': ['console'],
+			'level': 'INFO',
+			'propagate': True,
+		},
+	},
+}
+import logging
+import logging.config
 
-# logging.config.dictConfig(LOGGING)
+logging.config.dictConfig(LOGGING)
 
 #DATE_FORMATS_LIST = ["%d-%b-%Y :: 3-Apr-2022", "%d/%m/%Y :: 4/7/2022", "%d-%m-%y :: 4-7-22", "%Y-%m-%d :: 2022-01-07"]
 

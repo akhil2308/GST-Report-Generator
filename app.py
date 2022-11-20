@@ -36,7 +36,7 @@ if __name__=='__main__':
         df              = obj.parse()
         months_list     = obj.get_unique_month(df)
         # sorting dates
-        months_list.sort(key=lambda date: datetime.strptime(date, '%B-%Y'))
+        months_list.sort(key=lambda date: datetime.strptime(date, '%b-%Y'))
         
         # select (Monthly or Quarterly)
         action = inquirer.select(message="Select an action:", choices=["Monthly","Quarterly"],).execute()

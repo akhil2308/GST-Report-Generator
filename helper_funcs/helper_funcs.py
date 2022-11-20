@@ -1,18 +1,14 @@
 from dateutil import parser
 import os
 import glob
-from settings.settings import GOOGLE_CREDENTIALS_PATH, GOOGLE_AUTHORIZED_USER_PATH, gc
-
-
-
+from settings.settings import gc
 
 def treat_date_v2(s_date, format='date'):
     try:
-        if format == 'date': return parser.parse(s_date).strftime("%Y-%m-%d")
-        if format == 'month_year': return parser.parse(s_date).strftime('%B-%Y')
-        if format == 'time': return parser.parse(s_date).strftime("%H:%M:%S")
-        if format == 'datetime': return parser.parse(s_date).strftime('%Y-%m-%d %H:%M:%S%z')
-        
+        if format == 'date': return parser.parse(s_date).strftime("%d-%b-%Y")
+        if format == 'month_year': return parser.parse(s_date).strftime('%b-%Y')
+        # if format == 'time': return parser.parse(s_date).strftime("%H:%M:%S")
+        # if format == 'datetime': return parser.parse(s_date).strftime('%Y-%m-%d %H:%M:%S%z')
     except:
         return None
     
