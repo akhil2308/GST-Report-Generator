@@ -90,7 +90,7 @@ class B2BB2CParser():
 			range_between_col = col.index('Invoice Value') - col.index('Taxable Value')
    
 			if range_between_col != 7:
-				logger.warning("thies columns should be in the coresponding order::",[
+				logger.warning(" thies columns should be in the coresponding order::",[
 						'Taxable Value','IGST RATE', 'IGST TAX', 'CGST RATE','CGST TAX', 'SGST RATE', 'SGST TAX','Invoice Value'])
 				raise #BaseException("some columns name are not correct")
 
